@@ -1,0 +1,573 @@
+/* ========== Base Reset ========== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+/* ======= Global Variables: Light & Dark Mode ======= */
+
+/* Default light mode */
+:root {
+  --primary-bg: #d4f1f4;
+  --secondary-bg: #75e6da;
+  --accent: #189ab4;
+  --text: #05445e;
+  --light-bg: #f5f5f5;
+  --subtle-border: #ccc;
+  --soft-text: #555;
+  --text-rgb: 5, 68, 94;
+}
+
+/* Dark mode via data-theme attribute */
+[data-theme="dark"] {
+  --primary-bg: #021c29;
+  --secondary-bg: #0b3c4c;
+  --accent: #3fa6b7;
+  --text: #b8e3eb;
+  --light-bg: #0b3c4c;
+  --subtle-border: #2a3d44;
+  --soft-text: #a0c1c8;
+  --text-rgb: 184, 227, 235;
+}
+
+/* Fallback for users who prefer dark mode but haven't toggled */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary-bg: #021c29;
+    --secondary-bg: #0b3c4c;
+    --accent: #3fa6b7;
+    --text: #b8e3eb;
+    --light-bg: #0b3c4c;
+    --subtle-border: #2a3d44;
+    --soft-text: #a0c1c8;
+    --text-rgb: 184, 227, 235;
+  }
+}
+
+/* ========== Base Styles ========== */
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--primary-bg);
+  padding: 1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
+
+/* ========== Header ========== */
+header {
+  text-align: center;
+  padding: 2rem 0;
+  background-color: var(--light-bg);
+  border-bottom: 1px solid var(--subtle-border);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: var(--soft-text);
+}
+
+/* ========== Navigation ========== */
+/* ========== Updated Navigation with Centered Nav List ========== */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--accent);
+  padding: 1rem;
+  display: flex;
+  justify-content: center; /* Center the nav by default */
+  align-items: center;
+  position: relative; /* For absolute positioning of mobile button */
+}
+
+/* Mobile menu button - positioned absolutely so it doesn't affect centering */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  position: absolute;
+  right: 1rem; /* Position on the right side */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mobile-menu-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu-btn img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+/* Desktop navigation - centered */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.nav-list a {
+  color: var(--primary-bg);
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.nav-list a:focus {
+  outline: 2px dashed var(--primary-bg);
+  outline-offset: 2px;
+}
+
+/* ========== Mobile Styles ========== */
+@media (max-width: 768px) {
+  /* Show mobile menu button */
+  .mobile-menu-btn {
+    display: block;
+  }
+  
+  /* Hide navigation by default on mobile */
+  .nav-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--accent);
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Show navigation when mobile menu is open */
+  .nav-list.mobile-menu-open {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .nav-list li {
+    width: 100%;
+  }
+  
+  .nav-list a {
+    display: block;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+  
+  .nav-list a:last-child {
+    border-bottom: none;
+  }
+}
+
+/* ========== Tablet Styles ========== */
+@media (max-width: 992px) and (min-width: 769px) {
+  .nav-list {
+    gap: 1rem;
+  }
+  
+  .nav-list a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== Tablet Styles ========== */
+@media (max-width: 992px) and (min-width: 769px) {
+  .nav-list {
+    gap: 1rem;
+  }
+  
+  .nav-list a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ========== Layout ========== */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  padding-top: 5rem;
+}
+
+.back-to-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.back-to-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+  background-color: var(--text);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.back-to-top-btn img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1); /* Makes the arrow white */
+  transition: transform 0.2s ease;
+}
+
+.back-to-top-btn:hover img {
+  transform: scale(1.1);
+}
+
+/* Focus styles for accessibility */
+.back-to-top-btn:focus {
+  outline: 2px solid var(--primary-bg);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .back-to-top-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  
+  .back-to-top-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* ========== Sections ========== */
+section {
+  scroll-margin-top: 80px;
+  padding: 2rem 1rem;
+  border-bottom: 1px solid var(--subtle-border);
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+article {
+  margin-bottom: 2rem;
+}
+
+article h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ========== About Section ========== */
+.about-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.profile-pic {
+  float: left;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+@media (min-width: 600px) {
+  .about-wrapper {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .about-text {
+    max-width: 600px;
+  }
+}
+
+/* ========== Skills Preview ========== */
+.skills-preview {
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+}
+
+.skills-preview h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.skills-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.skills-columns > div {
+  flex: 1 1 250px;
+}
+
+.skills-preview ul {
+  padding-left: 1rem;
+  list-style-type: disc;
+  margin-bottom: 1rem;
+}
+
+.skills-preview h4 {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.skills-preview a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #007acc;
+}
+.skills-preview a:hover {
+  text-decoration: underline;
+}
+
+
+/* ========== Projects Grid ========== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* ========== Project Card ========== */
+.project-card {
+    position: relative;
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--light-bg);
+    border: 1px solid var(--subtle-border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.project-card:hover,
+.project-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Title on top */
+.project-card h3 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    color: var(--text);
+    width: 100%;
+}
+
+/* Project content container */
+.project-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+/* Project Image - floated left with text wrapping */
+.project-card img {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, z-index 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+/* Image enlargement on hover/click */
+.project-card img:hover,
+.project-card img.enlarged {
+    width: 360px;
+    height: 270px;
+    transform: scale(1);
+    z-index: 10;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+/* Project details with text wrapping around image */
+.project-details {
+    flex: 1;
+    overflow: hidden;
+}
+
+/* Overlay Content */
+.project-overlay p,
+.project-overlay ul,
+.project-overlay a {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+    color: var(--primary-bg);
+}
+
+.project-overlay ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.project-overlay a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.project-overlay a:hover,
+.project-overlay a:focus {
+    text-decoration: underline;
+}
+
+/* ========== Contact Form ========== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--subtle-border);
+  border-radius: 5px;
+}
+
+button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  background-color: var(--accent);
+  color: var(--primary-bg);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+#form-status.success {
+  color: green;
+  margin-top: 1rem;
+}
+
+#form-status.failure {
+  color: red;
+  margin-top: 1rem;
+}
+
+/* ========== Footer ========== */
+body {
+  background-color: var(--primary-bg);
+  color: var(--text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle button styling */
+#theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-top: 1rem;
+}

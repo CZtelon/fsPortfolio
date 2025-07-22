@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio site of Carmiel Frutkoff, showcasing full-stack projects, bio, and contact information." />
+  <meta name="keywords" content="Carmiel, Frutkoff, fullStack, portfolio, web developer, design" />
+  <title> Carmiel Frutkoff | Full-Stack Developer</title>
+  <!-- Open Graph & Twitter Cards -->
+  <meta property="og:title" content="Carmiel's Portfolio" />
+  <meta property="og:description" content="Full-stack web developer portfolio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="path/to/preview-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header>
+  <h1>Carmiel Frutkoff</h1>
+      <p>Bridging people, purpose, and technology</p>
+</header>
+
+<!-- Mobile Menu Navigation-->
+<nav aria-label="Main navigation" role="navigation">
+  <!-- Mobile menu button (only visible on small screens) -->
+  <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle mobile menu">
+    <img src="images/menuBar.png" alt="Menu" />
+  </button>
+  
+  <!-- Navigation menu -->
+  <ul class="nav-list" id="nav-menu">
+  <li><a href="#about">About</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+  
+</nav>
+
+<!--Main Section-->
+  <main>
+    <section id="home" tabindex="-1">
+      <h2>Welcome</h2>
+      <p>I’m a mission-driven developer blending years of experience in community-building, education, and systems thinking with clean, thoughtful code. I’m especially drawn to roles in tech-for-good, education technology, or product/project management, where human impact meets technical execution.</p>
+    </section>
+
+    <section id="about">
+      <h2>About Me</h2>
+        <img src="images/profile.jpeg" alt="Carmiel profile photo" class="profile-pic" loading="lazy" />
+        <p>I’m Carmiel — a full-stack developer in training, transitioning into tech after 15 years of building communities, 
+        leading organizations, and guiding people through complex challenges.
+        <br><br>
+        I’ve designed educational programs, directed cross-cultural initiatives, and helped teams build trust across deep differences. 
+        Now, I’m bringing that same clarity and purpose into the world of code.
+        <br><br>
+        I’m currently focused on core web technologies — learning JavaScript, HTML/CSS, and backend fundamentals — 
+        with a foundation in Python and Swift, and plans to expand into SQL and other backend tools as I deepen my 
+        full-stack training.
+        <br><br>
+        Outside of coding, I teach, write about Jewish peoplehood, and guide delegations through my social venture, Pluralusalem. I believe technology is most powerful when it helps people connect—across cultures, distances, and differences.
+        <br><br>
+        Curious why I made the leap from education and community-building to tech? <a href="about.html">[Read my story →]</a>
+        <br><br>
+        </p>
+    </section>
+
+    <section id="skills-preview" class="skills-preview">
+  <h3>Skills at a Glance</h3>
+  <div class="skills-columns">
+    <div>
+      <h4>Technical Skills</h4>
+      <ul>
+        <li>JavaScript, HTML, CSS</li>
+        <li>React, Node.js, MongoDB</li>
+        <li>Git, REST APIs, Firebase</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Transferable Skills</h4>
+      <ul>
+        <li>Negotiation & complex conversations</li>
+        <li>Curriculum design & facilitation</li>
+        <li>Project leadership & team building</li>
+      </ul>
+    </div>
+  </div>
+  <p><a href="skills.html">See full breakdown →</a></p>
+</section>
+
+<section id="projects" tabindex="-1">
+  <h2>Selected Projects</h2>
+  <div class="projects-grid">
+
+    <!-- Project 1 -->
+    <article class="project-card" aria-labelledby="project1-title">
+      <h3 id="project1-title">Personal Portfolio</h3>
+        <img src="images/projectPortfolio.png" alt="Screenshot of Carmiel's personal portfolio homepage" loading="lazy" />
+      
+      <div class="project-details">
+        <p>This accessible and responsive portfolio showcases selected works and writing.</p>
+        <ul>
+          <li><strong>Tech Stack:</strong> HTML, CSS, JavaScript</li>
+          <li><strong>Focus:</strong> Accessibility, modular design</li>
+        </ul>
+        <p>
+          <a href="mock-project.html">GitHub</a> |
+          <a href="mock-project.html">Live Site</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="project-card" aria-labelledby="project2-title">
+      <h3 id="project2-title">Telon: NFT Phone Number</h3>
+        <img src="images/projectTelon.png" alt="Concept mockup of Telon identity app interface" loading="lazy" />
+      
+      <div class="project-details">
+        <p>Telon replaces SIM cards with decentralized, blockchain-secured NFT phone numbers.</p>
+        <ul>
+          <li><strong>Tech Stack:</strong> Solidity, React, IPFS</li>
+          <li><strong>Focus:</strong> Identity, portability, security</li>
+        </ul>
+        <p>
+          <a href="mock-project.html">GitHub</a> |
+          <a href="mock-project.html">Site</a>
+        </p>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="project-card" aria-labelledby="project3-title">
+      <h3 id="project3-title">Jerusalem Online Tech School</h3>
+        <img src="images/projectJTS.png" alt="Screenshot of the tech school landing page" loading="lazy" />
+      
+      <div class="project-details">
+        <p>A bilingual tech school for Arabic-speaking high school students, rooted in community.</p>
+        <ul>
+          <li><strong>Tech Stack:</strong> Next.js, Firebase, Tailwind</li>
+          <li><strong>Focus:</strong> Social impact, localization, scalability</li>
+        </ul>
+        <p>
+          <a href="mock-project.html">GitHub</a> |
+          <a href="mock-project.html">Live Site</a>
+        </p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" tabindex="-1">
+      <h2>Contact Me</h2>
+      <form id="contact-form" action="your-backend-endpoint" method="POST" aria-label="Contact form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required aria-required="true" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required aria-required="true" />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+
+        <button type="submit">Send</button>
+        <p id="form-status" class="hidden"> </p> <!-- Status message for form submission simulation -->
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Carmiel Frutkoff. All rights reserved.</p>
+    <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top">
+  <img src="images/arrowUp.png" alt="Arrow pointing up" />
+</button>
+    <br>
+    <label>
+  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode" />
+  <span>🌙 / ☀️</span>
+</label>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>

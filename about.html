@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .about-section {
+  padding: 2rem 1.5rem;
+  background-color: var(--primary-bg);
+  color: var(--text);
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-photo {
+  width: 220px;
+  height: auto;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.about-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.about-content h1 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.about-content p {
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .about-section {
+    background-color: var(--primary-bg);
+    color: var(--text);
+  }
+
+  .about-content h1 {
+    color: var(--accent);
+  }
+
+  .about-photo {
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav aria-label="Main navigation" role="navigation">
+  <!-- Mobile menu button (only visible on small screens) -->
+  <button id="mobile-menu-toggle" class="mobile-menu-btn" aria-label="Toggle mobile menu">
+    <img src="images/menuBar.png" alt="Menu" />
+  </button>
+  
+  <!-- Navigation menu -->
+  <ul class="nav-list" id="nav-menu">
+  <li><a href="index.html#about">About</a></li>
+  <li><a href="index.html#projects">Projects</a></li>
+  <li><a href="index.html#contact">Contact</a></li>
+</ul>
+</nav>
+
+  <!-- Main Content -->
+  <main class="about-section">
+    <div class="about-container">
+      <img src="images/profile.jpeg" alt="My profile photo" class="about-photo" />
+      <div class="about-content">
+        <h1>My Journey to Tech</h1>
+        <p> 
+        For years, I was the person people called when something new needed to be built — a community project, a youth leadership program, or an organization from the ground up.
+        I’ve been a social entrepreneur, a tour guide, a teacher, a founder, and a father.
+        Most of my adult life has been spent in spaces where human complexity is the norm, and easy answers are rare.
+        </p>
+            
+        <p>So why am I learning to code?</p>
+
+        <p>
+        The shift wasn’t sudden, but it became urgent. After October 7th, like many others in this region, I found the ground beneath me changed. 
+        The work that had always felt essential—helping communities navigate conflict—no longer felt sustainable, at least not in the same way. 
+        I was supporting others while struggling to support my own family. I needed stability. But I wasn’t ready to abandon meaning.
+        </p>
+
+        <p>
+        That’s when I started to look at technology—not as an escape, but as a tool. 
+        Tech can build systems. It can scale good ideas. It can connect people across boundaries. And unlike peace-building, 
+        which often lives in moments and conversations, tech leaves artifacts—codebases, platforms, tools—that can outlast us.
+        </p>
+
+        <p>
+        At first, it was intimidating. I’m used to text—Torah, political philosophy, policy briefs—not text editors. 
+        I’ve facilitated negotiations, but the first time I typed <strong>git push origin main,</strong> I was just hoping I didn’t break the internet.
+        </p>
+        
+        <p>
+        And over time, something familiar emerged. Clean code is a form of empathy. 
+        Building a backend is another way of structuring relationships. Frontend logic is storytelling. 
+        And debugging? That’s just conflict resolution in disguise.
+        </p>
+        
+        <p>
+        Today, I’m a full-stack developer in training. 
+        I’m building my skills in React, Node.js, and Python — not to escape the world I came from, but to bring its values with me into new spaces. 
+        Whether I’m designing an app or contributing to an open-source tool, I’m still doing what I’ve always done: listening deeply, 
+        making connections, and helping people build something better together.
+        </p>
+        <p>
+             didn’t lose my passion for building community—I just changed my tools. And as I grow as a developer, 
+             I’m exploring where meaningful tech can support real-world connection, access, and impact.
+        </p>
+        <p>This is my pivot. It’s not a departure. It’s a translation.</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
